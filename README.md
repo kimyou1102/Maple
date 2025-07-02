@@ -1,30 +1,48 @@
-# Location sharing service
+# 장소 공유 서비스
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+[배포 사이트](https://v0-location-sharing-service-two.vercel.app)
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/kimyugyeongs-projects/v0-location-sharing-service)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/kojlmiypExt)
+## 페르소나
 
-## Overview
+장소 탐험가 - 윤슬기 (26세)
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+직업: 콘텐츠 마케터
 
-## Deployment
+라이프스타일: 새로운 장소, 예쁜 카페나 핫플을 찾아다니는 걸 좋아함. 친구들과 자주 약속을 잡고, 장소 추천을 주도하는 편.
 
-Your project is live at:
+목표: 내가 알고 있는 좋은 장소를 친구들과 쉽게 공유하고, 친구들의 단골 장소도 함께 보고 싶음
 
-**[https://vercel.com/kimyugyeongs-projects/v0-location-sharing-service](https://vercel.com/kimyugyeongs-projects/v0-location-sharing-service)**
+니즈: 지도를 기준으로 장소를 시각적으로 비교하고, 여러 사람의 추천 장소를 한눈에 보기
 
-## Build your app
+페인 포인트:
 
-Continue building your app on:
+- 말로 설명하면 서로 어딘지 몰라서 헷갈림
+- 친구들과 장소 추천을 정리하려고 해도 스크린샷, 카톡, 지도 링크가 뒤섞여 불편함
+- 네이버 지도의 즐겨찾기를 공유하려 해도 식당, 카페 등 카테고리별로 저장된 것을 일일이 공유하는 것이 귀찮음
 
-**[https://v0.dev/chat/projects/kojlmiypExt](https://v0.dev/chat/projects/kojlmiypExt)**
+## 사용자 시나리오 및 스토리
+약속 장소를 정할 때 지도 기반으로 공유하기상황: 슬기와 친구들이 다음 주에 홍대에서 만나기로 했는데, 각자 가고 싶은 장소를 추천하고 있음. 슬기가 '마플맵'을 열고 직접 구역을 지정해 친구들과 장소를 시각적으로 공유하기로 함.사용자 시나리오:
 
-## How It Works
+1. 슬기는 마플맵 웹사이트를 열고 홍대 근처 지도를 연다
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+2. 마우스로 홍대 일대를 선택하고 '공유' 버튼을 누른다
+
+3. 친구들이 추천한 장소들이 카테고리별로 지도에 마커로 나타난다
+
+4. 자신의 네이버 지도 즐겨찾기 중 이 지역 내 장소들도 자동으로 표시된다
+
+5. 친구들과 함께 공유된 링크를 보며 각자 선호하는 장소를 고르고, 카톡 대신 지도에서 바로 결정함사용자 스토리:
+
+"친구들과 장소를 정할 때마다 다들 링크만 던져줘서 어디가 어딘지 모르겠어요.
+
+그래서 저는, 지도를 기준으로 추천 장소를 한눈에 보고 함께 결정하고 싶어요.
+
+그렇게 하면 누구나 자기 단골 장소도 쉽게 보여줄 수 있고, 헷갈릴 일도 없어요."
+
+## 인수조건
+| **Given (상황)** | **When (행동)** | **Then (결과)** |
+| --- | --- | --- |
+| 사용자가 지도를 볼때 | 마우스로 특정 구역(예: 홍대 일대)을 드래그하여 선택하면 | 선택된 영역이 시각적으로 강조되어 표시된다 |
+| 사용자가 구역을 선택했을때 | ‘공유’ 버튼을 클릭하면 | 공유 가능한 링크가 생성되고, 해당 구역이 공유 상태로 전환된다 |
+| 공유된 구역이 있는 지도에 접근했을때 | 친구들이 장소를 추가하면 | 추천 장소가 카테고리별 마커로 지도 위에 표시된다. |
+| 사용자의 네이버 계정이 연동됐을때 | 공유된 구역 내에 사용자의 네이버 즐겨찾기 장소가 있다면 | 즐겨찾기 장소가 지도 위에 자동으로 마커로 표시된다 |
